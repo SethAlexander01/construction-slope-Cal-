@@ -749,6 +749,41 @@ img, svg {
   display: block;
 }
 
+/* ── Coming Soon Cards ── */
+.calc-link-card--coming-soon {
+  background: #F3F4F6;
+  border-color: transparent;
+  cursor: not-allowed;
+  pointer-events: none;
+  user-select: none;
+}
+
+.calc-link-card--coming-soon .calc-link-icon,
+.calc-link-card--coming-soon .calc-link-title,
+.calc-link-card--coming-soon .calc-link-desc {
+  opacity: 0.45;
+}
+
+.calc-link-card--coming-soon:hover {
+  border-color: transparent;
+  transform: none;
+  box-shadow: var(--shadow);
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background: #E5E7EB;
+  color: #6B7280;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+  border: 1px solid #D1D5DB;
+}
+
 /* ================================================================
    FOOTER
 ================================================================ */
@@ -788,6 +823,12 @@ img, svg {
 
 .footer-links a:hover {
   color: var(--color-primary);
+}
+
+.footer-link-disabled {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.82rem;
+  cursor: default;
 }
 
 /* ================================================================
@@ -850,13 +891,13 @@ img, svg {
    RESPONSIVE — MOBILE (max-width: 768px)
 ================================================================ */
 @media (max-width: 768px) {
-  /* Hide nav links on mobile */
+  /* Hide nav links on mobile — page anchor links are enough */
   .nav-links {
     display: none;
   }
 
   .hero {
-    padding: 36px 0 30px;
+    padding: 28px 0 24px;
   }
 
   /* Stack calculator inputs and results vertically */
@@ -867,21 +908,86 @@ img, svg {
   .inputs-section {
     border-right: none;
     border-bottom: 1px solid var(--color-border);
-    padding: 22px 20px;
+    padding: 20px 16px;
   }
 
   .results-section {
-    padding: 22px 20px;
+    padding: 20px 16px;
   }
 
   .card-header {
-    padding: 14px 20px;
+    padding: 14px 16px;
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
 
   .results-box {
-    padding: 16px;
+    padding: 14px;
+  }
+
+  /* Bigger touch targets for inputs and selects on mobile */
+  .form-group input[type="number"],
+  .form-group select {
+    padding: 13px 14px;
+    font-size: 1rem;      /* 16px prevents iOS auto-zoom */
+    min-height: 48px;
+  }
+
+  /* Bigger tap area for radio toggle */
+  .toggle-label {
+    padding: 6px 4px;
+    font-size: 0.95rem;
+  }
+
+  .toggle-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Buttons fill available width in a 2-column grid on mid-mobile */
+  .button-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Copy button spans both columns */
+  #copy-btn {
+    grid-column: 1 / -1;
+  }
+
+  .btn {
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Result items: stack label above value to prevent overflow */
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 10px 0;
+  }
+
+  .result-label {
+    font-size: 0.8rem;
+  }
+
+  .result-value {
+    text-align: left;
+    font-size: 1.05rem;
+  }
+
+  .disclaimer {
+    font-size: 0.82rem;
+  }
+
+  .info-section h2,
+  .faq-section h2,
+  .related-calculators h2 {
+    font-size: 1.3rem;
   }
 }
 
@@ -889,12 +995,30 @@ img, svg {
    RESPONSIVE — SMALL MOBILE (max-width: 480px)
 ================================================================ */
 @media (max-width: 480px) {
+  .hero {
+    padding: 22px 0 20px;
+  }
+
   .hero h1 {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
   }
 
   .hero-subtitle {
-    font-size: 0.93rem;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .hero-badges {
+    gap: 7px;
+  }
+
+  .badge {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  .container {
+    padding: 0 14px;
   }
 
   .soil-cards,
@@ -902,30 +1026,28 @@ img, svg {
     grid-template-columns: 1fr;
   }
 
-  /* Stack result label/value on very small screens */
-  .result-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
-    padding: 10px 0;
-  }
-
-  .result-value {
-    text-align: left;
-    font-size: 1rem;
-  }
-
+  /* Buttons go single-column on very small phones */
   .button-row {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
-  .btn {
-    width: 100%;
-    text-align: center;
+  #copy-btn {
+    grid-column: auto;
   }
 
   .faq-question {
-    font-size: 0.9rem;
-    padding: 14px 16px;
+    font-size: 0.88rem;
+    padding: 14px 14px;
+  }
+
+  .faq-answer p {
+    padding: 14px 14px;
+    font-size: 0.875rem;
+  }
+
+  /* Keep footer links readable */
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
   }
 }
