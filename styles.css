@@ -597,6 +597,148 @@ img, svg {
 .soil-card--c h3 { color: var(--color-type-c); }
 
 /* ================================================================
+   HOW TO USE SECTION
+================================================================ */
+.how-to-section {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  box-shadow: var(--shadow);
+  margin-bottom: 36px;
+}
+
+.how-to-section h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.how-to-section > p {
+  color: var(--color-text-light);
+  margin-bottom: 18px;
+}
+
+.how-to-steps {
+  list-style: none;
+  counter-reset: step-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.how-to-steps li {
+  counter-increment: step-counter;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.how-to-steps li::before {
+  content: counter(step-counter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.how-to-steps li strong {
+  color: var(--color-dark);
+}
+
+.how-to-note {
+  font-size: 0.875rem;
+  color: #5A4500;
+  background: #FFFBEA;
+  border-left: 4px solid #F0C040;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  line-height: 1.6;
+}
+
+/* ================================================================
+   SLOPE REFERENCE TABLE
+================================================================ */
+.slope-table-wrapper {
+  margin-top: 28px;
+}
+
+.slope-table-wrapper h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 12px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.slope-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+  font-size: 0.9rem;
+  min-width: 520px;
+}
+
+.slope-table thead {
+  background: var(--color-dark);
+  color: var(--color-white);
+}
+
+.slope-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.slope-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.slope-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.slope-table tbody tr:hover {
+  background: var(--color-bg);
+}
+
+.table-row--highlight td {
+  background: rgba(245, 166, 35, 0.06);
+}
+
+.table-note {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  margin-top: 8px;
+  padding-left: 4px;
+}
+
+/* ================================================================
    FAQ SECTION
 ================================================================ */
 .faq-section {
@@ -986,8 +1128,13 @@ img, svg {
 
   .info-section h2,
   .faq-section h2,
-  .related-calculators h2 {
+  .related-calculators h2,
+  .how-to-section h2 {
     font-size: 1.3rem;
+  }
+
+  .how-to-section {
+    padding: 20px 18px;
   }
 }
 

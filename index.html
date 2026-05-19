@@ -24,6 +24,11 @@
   <!-- ─── Canonical URL (update to your real domain) ─── -->
   <link rel="canonical" href="https://yoursite.com/" />
 
+  <!-- ─── Crawling & Indexing ─── -->
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="ConstructionCalc" />
+  <meta name="theme-color" content="#1E2530" />
+
   <!-- ─── Schema Markup: WebApplication ─── -->
   <script type="application/ld+json">
   {
@@ -37,7 +42,7 @@
   }
   </script>
 
-  <!-- ─── Schema Markup: FAQ Page ─── -->
+  <!-- ─── Schema Markup: FAQ Page (10 questions for rich results) ─── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -51,7 +56,7 @@
       {
         "@type": "Question",
         "name": "How do I calculate excavation slope distance?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Horizontal Setback = Depth × Slope Ratio. Total Top Width = Bottom Width + (2 × Horizontal Setback)." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Horizontal Setback = Depth × Slope Ratio. Total Top Width = Bottom Width + (2 × Horizontal Setback). For example, a 10-foot trench in Type B soil (1:1) needs 10 ft of setback per side, giving a 22-foot top width for a 2-foot-wide bottom." }
       },
       {
         "@type": "Question",
@@ -72,7 +77,82 @@
         "@type": "Question",
         "name": "What is the difference between Type A, B, and C soil?",
         "acceptedAnswer": { "@type": "Answer", "text": "Type A is the most stable (3/4:1 slope), Type B is moderately stable (1:1 slope), and Type C is the least stable (1.5:1 slope). A competent person must classify soil using visual and manual tests." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does OSHA 29 CFR 1926.652 require for excavation sloping?",
+        "acceptedAnswer": { "@type": "Answer", "text": "OSHA 29 CFR 1926.652 requires that all excavations 5 feet or deeper have an adequate protective system. Appendix B sets maximum slopes: 0.75:1 for Type A, 1:1 for Type B, and 1.5:1 for Type C soil. Simple sloping is one of three accepted methods alongside shoring and shielding." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this calculator for shoring or trench box selection?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. This calculator only estimates open-cut slope dimensions. Shoring and trench box design require separate calculations based on soil pressure, surcharge loads, and manufacturer data. For depths over 20 feet, a licensed professional engineer must design the protective system." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do groundwater and rain affect soil classification?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Significantly. Soil that is submerged, subject to water seepage, or exposed to rain must be classified as Type C regardless of prior classification. A competent person must re-inspect after every rainstorm and whenever site conditions change." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is sloping always the safest option for excavation work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not always. Sloping is cost-effective when space allows, but in tight areas or deep Type C soil, shoring or shielding may be safer. All three methods are valid under OSHA 1926.652 when properly designed. The competent person decides which system fits each situation." }
       }
+    ]
+  }
+  </script>
+
+  <!-- ─── Schema Markup: HowTo (shows step-by-step rich results in Google) ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Calculate Excavation Slope Distance",
+    "description": "Calculate the safe horizontal setback for any trench or excavation using OSHA soil classification and slope ratios.",
+    "totalTime": "PT2M",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Measure the excavation depth",
+        "text": "Determine the total planned depth of your trench or excavation in feet. This is the vertical distance from the ground surface to the bottom of the cut."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Classify the soil type",
+        "text": "Have a competent person classify the soil as Stable Rock, Type A, Type B, or Type C per OSHA 29 CFR 1926.652 Appendix A. When in doubt, always use Type C."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Enter the trench bottom width",
+        "text": "Input the width of the trench at its lowest point. For most utility trenches, the default of 2 feet applies."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Read the horizontal setback result",
+        "text": "The calculator multiplies depth by the OSHA slope ratio for your soil type (Type A: 0.75, Type B: 1.0, Type C: 1.5) to give you the required setback per side and total top width."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Verify with your competent person",
+        "text": "Share results with your on-site competent person. Verify that groundwater, surcharge loads, and nearby vibration sources do not require additional protective measures beyond simple sloping."
+      }
+    ]
+  }
+  </script>
+
+  <!-- ─── Schema Markup: BreadcrumbList ─── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ConstructionCalc", "item": "https://yoursite.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Excavation Slope Calculator", "item": "https://yoursite.com/" }
     ]
   }
   </script>
@@ -111,11 +191,13 @@
       <!-- H1 targets primary keyword -->
       <h1>Excavation Slope Calculator</h1>
       <p class="hero-subtitle">
-        Use this free <strong>OSHA excavation slope calculator</strong> to estimate safe horizontal setback
-        distances for any trench or excavation. Enter your depth and soil type to get instant results for
-        <strong>Type A, B, and C soil</strong> or stable rock — referenced from OSHA 29 CFR 1926 Subpart P.
-        Whether you need a <strong>trench slope calculator</strong> on the job site or a quick planning
-        estimate, this tool gives you the numbers you need in seconds.
+        Use this free <strong>OSHA excavation slope calculator</strong> to instantly estimate safe horizontal
+        setback distances for any trench or excavation. Select your soil classification —
+        <strong>Type A, Type B, Type C</strong>, or Stable Rock — and get the required slope ratio,
+        setback per side, and top opening width in seconds. Referenced from
+        <strong>OSHA 29 CFR 1926 Subpart P</strong>. Whether you're a contractor, foreman, or safety
+        professional using this <strong>trench slope calculator</strong> on the job site or for bid planning,
+        you'll have your numbers before your coffee gets cold.
       </p>
       <div class="hero-badges">
         <span class="badge">Free &amp; Instant</span>
@@ -304,6 +386,34 @@
     </aside>
 
     <!-- ================================================================
+         HOW TO USE SECTION
+    ================================================================ -->
+    <section class="how-to-section" id="how-to-use" aria-labelledby="howto-heading">
+      <h2 id="howto-heading">How to Use the Excavation Slope Calculator</h2>
+      <p>Get your safe trench slope estimate in under two minutes:</p>
+      <ol class="how-to-steps">
+        <li>
+          <strong>Enter excavation depth</strong> — type the total planned depth of your trench in feet. Use the Feet / Meters toggle if you prefer metric.
+        </li>
+        <li>
+          <strong>Select soil type</strong> — choose the OSHA classification your competent person identified on site: Stable Rock, Type A, Type B, or Type C. If you're unsure, always default to <strong>Type C</strong> — it's the most conservative.
+        </li>
+        <li>
+          <strong>Set the trench bottom width</strong> — enter the width at the bottom of the cut. Most utility trenches default to 2 feet; adjust for wider excavations like manholes or footings.
+        </li>
+        <li>
+          <strong>Add trench length (optional)</strong> — enter a length to get the estimated excavation footprint area, useful for spoil pile planning and permit applications.
+        </li>
+        <li>
+          <strong>Review your results</strong> — the calculator shows the OSHA slope ratio, horizontal setback per side, total top opening width, and a plain-English safety note. Use Print or Copy to save them.
+        </li>
+      </ol>
+      <p class="how-to-note">
+        Always review results with your on-site competent person. Field conditions — groundwater, nearby structures, equipment vibration, and weather — can require a more conservative protective system than simple sloping alone.
+      </p>
+    </section>
+
+    <!-- ================================================================
          SOIL TYPE EXPLANATION SECTION
     ================================================================ -->
     <section class="info-section" id="soil-types" aria-labelledby="soil-heading">
@@ -352,6 +462,50 @@
             Examples: gravel, sandy loam, submerged soil or rock, or soil where water is freely seeping.
           </p>
         </div>
+      </div>
+
+      <!-- Slope ratio quick-reference table -->
+      <div class="slope-table-wrapper">
+        <h3>Quick Reference: OSHA Excavation Slope Ratios</h3>
+        <div class="table-scroll">
+          <table class="slope-table">
+            <thead>
+              <tr>
+                <th>Soil Type</th>
+                <th>Slope Ratio (H:V)</th>
+                <th>10 ft Depth — Setback/Side</th>
+                <th>10 ft Depth — Top Width*</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stable Rock</td>
+                <td>0 : 1 (Vertical)</td>
+                <td>0 ft</td>
+                <td>2 ft</td>
+              </tr>
+              <tr>
+                <td>Type A Soil</td>
+                <td>¾ : 1 (0.75 H:V)</td>
+                <td>7.5 ft</td>
+                <td>17 ft</td>
+              </tr>
+              <tr class="table-row--highlight">
+                <td>Type B Soil</td>
+                <td>1 : 1 (1.0 H:V)</td>
+                <td>10 ft</td>
+                <td>22 ft</td>
+              </tr>
+              <tr>
+                <td>Type C Soil</td>
+                <td>1½ : 1 (1.5 H:V)</td>
+                <td>15 ft</td>
+                <td>32 ft</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">* Top width based on 2 ft trench bottom width. Source: OSHA 29 CFR 1926.652 Appendix B.</p>
       </div>
     </section>
 
@@ -469,6 +623,72 @@
             1:1 slope. <strong>Type C</strong> soils (sand, gravel, saturated soil) are the least stable
             and require a 1.5:1 slope. Soil can be downgraded but never upgraded. Disturbed or fissured soil
             is always classified as Type C at minimum.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">
+          What does OSHA 29 CFR 1926.652 require for excavation sloping?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-answer-7" role="region">
+          <p>
+            <strong>OSHA 29 CFR 1926.652</strong> requires that all excavations 5 feet or deeper have an
+            adequate protective system — unless the excavation is entirely in stable rock. Appendix B of
+            the standard establishes maximum allowable slopes: <strong>0.75:1 for Type A</strong>,
+            <strong>1:1 for Type B</strong>, and <strong>1.5:1 for Type C</strong> soil. Simple sloping
+            (what this calculator estimates) is one of three accepted protective methods alongside shoring
+            and shielding. The employer must ensure a competent person inspects the site daily.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-8">
+          Can I use this calculator for shoring or trench box selection?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-answer-8" role="region">
+          <p>
+            No — this <strong>trench slope calculator</strong> only estimates open-cut (sloped) excavation
+            dimensions. Shoring and trench box (shielding) design require separate analysis based on lateral
+            soil pressure, surcharge loads, and manufacturer specifications. If sloping is not practical due
+            to space or soil conditions, consult your competent person. For excavations deeper than 20 feet,
+            a licensed professional engineer must design the protective system.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-9">
+          How do groundwater and rain affect excavation soil classification?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-answer-9" role="region">
+          <p>
+            Significantly. Any soil that is submerged, subject to water seepage, or has been exposed to
+            rainfall must be classified as <strong>Type C</strong> — regardless of what it may have been
+            before. A competent person must re-inspect the excavation after every rain event, at the start
+            of each shift, and whenever water conditions change. Never assume a prior soil classification
+            still applies. When in doubt, always assume Type C and use a 1.5:1 slope or switch to shoring.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-10">
+          Is sloping always the best protective system for excavation work?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id="faq-answer-10" role="region">
+          <p>
+            Not always. Sloping works well when space permits and soil is stable, but it's not always
+            practical. In tight urban rights-of-way, near existing foundations, or in deep Type C excavations,
+            shoring or shielding may be safer and more cost-effective. All three protective methods are
+            equally valid under <strong>OSHA 1926.652</strong> when properly designed and implemented.
+            The on-site competent person — not this calculator — determines which system is appropriate
+            for your specific project conditions.
           </p>
         </div>
       </div>
